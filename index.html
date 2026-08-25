@@ -4,27 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="VertexAlpha - Market Intelligence, Trading Research and Education">
+<title>VertexAlpha | Market Intelligence & Trading Education</title>
 
-<title>VertexAlpha | Market Intelligence</title>
+<meta name="description"
+content="VertexAlpha - Market intelligence, technical analysis, trading research and financial market education.">
 
 <style>
-:root{
-  --bg:#070b12;
-  --card:#101722;
-  --card2:#151e2b;
-  --text:#f4f7fb;
-  --muted:#9aa7b8;
-  --line:#253142;
-  --accent:#63e6a4;
-  --accent2:#4dabf7;
-  --danger:#ff8787;
-}
-
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
+  box-sizing:border-box;
 }
 
 html{
@@ -32,17 +21,10 @@ html{
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:
-    radial-gradient(circle at 80% 10%,rgba(77,171,247,.12),transparent 30%),
-    radial-gradient(circle at 20% 30%,rgba(99,230,164,.08),transparent 28%),
-    var(--bg);
-  color:var(--text);
-  min-height:100vh;
-}
-
-button,a{
-  font:inherit;
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  background:#050914;
+  color:#f5f7fb;
+  overflow-x:hidden;
 }
 
 a{
@@ -50,508 +32,593 @@ a{
   text-decoration:none;
 }
 
-/* NAVBAR */
+button{
+  font:inherit;
+}
 
-.nav{
-  position:sticky;
+/* ================= BACKGROUND ================= */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  background:
+    radial-gradient(circle at 10% 20%,rgba(0,255,180,.09),transparent 28%),
+    radial-gradient(circle at 90% 10%,rgba(0,150,255,.12),transparent 30%),
+    linear-gradient(135deg,#030711,#07111d 50%,#030711);
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  opacity:.14;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
+  background-size:55px 55px;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  position:fixed;
   top:0;
-  z-index:100;
-  background:rgba(7,11,18,.94);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--line);
+  left:0;
+  right:0;
+  height:72px;
+  z-index:1000;
+  background:rgba(4,8,18,.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav-inner{
-  max-width:1100px;
+  max-width:1200px;
+  height:100%;
   margin:auto;
-  height:72px;
+  padding:0 22px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 20px;
 }
 
 .logo{
-  font-size:22px;
-  font-weight:800;
-  letter-spacing:.5px;
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:-1px;
 }
 
 .logo span{
-  color:var(--accent);
+  color:#38e6a0;
 }
 
 .menu-btn{
-  background:none;
-  border:1px solid var(--line);
+  width:48px;
+  height:48px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:13px;
+  background:#0b1220;
   color:white;
-  width:44px;
-  height:40px;
-  border-radius:10px;
-  font-size:22px;
+  font-size:25px;
   cursor:pointer;
 }
 
 .menu{
-  display:none;
-  position:absolute;
+  position:fixed;
   top:72px;
-  right:15px;
-  width:240px;
-  background:#0e151f;
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:10px;
-  box-shadow:0 20px 50px rgba(0,0,0,.5);
+  right:-310px;
+  width:290px;
+  height:calc(100vh - 72px);
+  padding:30px 20px;
+  background:rgba(5,10,20,.97);
+  backdrop-filter:blur(20px);
+  border-left:1px solid rgba(255,255,255,.1);
+  transition:.35s ease;
+  z-index:999;
 }
 
 .menu.open{
-  display:block;
+  right:0;
 }
 
 .menu a{
   display:block;
-  padding:14px;
-  border-radius:10px;
-  color:#dbe5ef;
+  padding:16px;
+  margin-bottom:7px;
+  border-radius:12px;
+  color:#cbd5e1;
+  transition:.2s;
 }
 
 .menu a:hover{
-  background:var(--card2);
-  color:var(--accent);
+  background:#101c2c;
+  color:#38e6a0;
 }
 
-/* PAGE */
+/* ================= COMMON ================= */
 
-.page{
-  display:none;
-  max-width:1100px;
+section{
+  max-width:1200px;
   margin:auto;
-  padding:65px 20px 90px;
+  padding:100px 22px;
 }
 
-.page.active{
-  display:block;
+.section-title{
+  font-size:38px;
+  margin-bottom:14px;
 }
+
+.section-title span{
+  color:#38e6a0;
+}
+
+.section-subtitle{
+  color:#8f9bae;
+  max-width:700px;
+  line-height:1.7;
+  margin-bottom:35px;
+}
+
+.card{
+  background:rgba(11,18,32,.82);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+
+/* ================= HERO ================= */
 
 .hero{
-  text-align:center;
-  padding:55px 10px 45px;
+  max-width:1200px;
+  min-height:100vh;
+  margin:auto;
+  padding:150px 22px 80px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:55px;
+  align-items:center;
 }
 
 .badge{
-  display:inline-block;
-  border:1px solid #31516b;
-  color:#8dd7ff;
-  background:#0c1824;
-  border-radius:30px;
-  padding:8px 15px;
+  display:inline-flex;
+  padding:9px 14px;
+  border:1px solid rgba(56,230,160,.25);
+  background:rgba(56,230,160,.07);
+  border-radius:50px;
+  color:#38e6a0;
   font-size:13px;
   margin-bottom:20px;
 }
 
 .hero h1{
-  font-size:clamp(38px,8vw,72px);
-  line-height:1;
+  font-size:64px;
+  line-height:1.03;
+  letter-spacing:-3px;
   margin-bottom:22px;
 }
 
 .hero h1 span{
-  color:var(--accent);
+  color:#38e6a0;
 }
 
 .hero p{
-  max-width:720px;
-  margin:auto;
-  color:var(--muted);
-  line-height:1.7;
-  font-size:16px;
+  color:#9aa7ba;
+  font-size:18px;
+  line-height:1.75;
+  max-width:650px;
 }
 
 .buttons{
   display:flex;
-  gap:12px;
-  justify-content:center;
   flex-wrap:wrap;
-  margin-top:28px;
+  gap:13px;
+  margin-top:30px;
 }
 
 .btn{
-  display:inline-block;
-  padding:13px 20px;
-  border-radius:10px;
-  border:1px solid var(--line);
+  padding:14px 21px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  background:#101827;
+  color:white;
   cursor:pointer;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  border-color:#38e6a0;
 }
 
 .btn-primary{
-  background:var(--accent);
-  color:#07100d;
+  background:#38e6a0;
+  color:#03110c;
+  font-weight:800;
+}
+
+/* ================= PROFILE ================= */
+
+.profile-card{
+  text-align:center;
+  padding:25px;
+}
+
+.profile-card img{
+  width:100%;
+  max-width:420px;
+  height:430px;
+  object-fit:cover;
+  border-radius:22px;
+  border:1px solid rgba(56,230,160,.25);
+}
+
+.profile-card h2{
+  margin-top:20px;
+  font-size:30px;
+}
+
+.profile-card p{
+  margin-top:7px;
+  color:#38e6a0;
   font-weight:700;
 }
 
-.btn-secondary{
-  background:var(--card);
-  color:white;
+/* ================= MARKET DASHBOARD ================= */
+
+.market-section{
+  padding-top:50px;
 }
 
-/* CARDS */
-
-.section-title{
-  margin-bottom:30px;
+.market-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:25px;
 }
 
-.section-title h2{
-  font-size:32px;
-  margin-bottom:10px;
+.market-card{
+  padding:20px;
+  border-radius:16px;
+  background:#0a1220;
+  border:1px solid rgba(255,255,255,.07);
 }
 
-.section-title p{
-  color:var(--muted);
+.market-card small{
+  color:#8996a8;
 }
 
-.grid{
+.market-card h3{
+  margin:9px 0;
+}
+
+.up{
+  color:#35e59c;
+}
+
+.down{
+  color:#ff5f6d;
+}
+
+/* CHART */
+
+.chart-box{
+  height:390px;
+  overflow:hidden;
+  padding:0;
+}
+
+.chart-box iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* ================= STRATEGY ================= */
+
+.strategy-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
 
-.card{
-  background:linear-gradient(145deg,#111a26,#0c131c);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:25px;
+.strategy-card{
+  position:relative;
+  overflow:hidden;
 }
 
-.card h3{
+.strategy-number{
+  color:#38e6a0;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.strategy-card h3{
   margin-bottom:12px;
   font-size:21px;
 }
 
-.card p{
-  color:var(--muted);
-  line-height:1.65;
+.strategy-card p{
+  color:#8996a8;
+  line-height:1.7;
 }
 
-.card .icon{
-  font-size:30px;
-  margin-bottom:16px;
-}
+/* ================= ABOUT ================= */
 
-/* PROFILE */
-
-.profile{
+.about-grid{
   display:grid;
-  grid-template-columns:280px 1fr;
-  gap:35px;
-  align-items:center;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
 }
 
-.profile-img{
-  width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  border-radius:22px;
-  border:1px solid var(--line);
-  background:#111923;
+.about-list{
+  list-style:none;
 }
 
-.profile h1{
-  font-size:38px;
-  margin-bottom:8px;
+.about-list li{
+  padding:15px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  color:#aeb9c9;
 }
 
-.role{
-  color:var(--accent);
-  font-weight:700;
-  margin-bottom:18px;
+.about-list li::before{
+  content:"✓";
+  color:#38e6a0;
+  margin-right:10px;
 }
 
-.info{
-  display:grid;
-  gap:12px;
-  margin-top:20px;
-}
+/* ================= REVIEWS ================= */
 
-.info div{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:14px;
-}
-
-.info strong{
-  display:block;
-  margin-bottom:4px;
-}
-
-.info span{
-  color:var(--muted);
-}
-
-/* PLANS */
-
-.plans{
+.reviews{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
 
-.plan{
-  background:linear-gradient(160deg,#121c28,#0d141d);
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:27px;
-  position:relative;
+.review{
+  min-height:210px;
 }
 
-.plan.featured{
-  border-color:#3f9d72;
-  box-shadow:0 0 35px rgba(99,230,164,.08);
+.stars{
+  color:#ffd166;
+  letter-spacing:2px;
+  margin-bottom:15px;
 }
 
-.plan-name{
-  color:#a8dfff;
-  font-size:14px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-.price{
-  font-size:34px;
-  font-weight:800;
-  margin:12px 0 4px;
-}
-
-.duration{
-  color:var(--muted);
-  margin-bottom:22px;
-}
-
-.plan ul{
-  list-style:none;
-  margin-bottom:25px;
-}
-
-.plan li{
-  padding:8px 0;
-  color:#cbd5e1;
-}
-
-.plan li::before{
-  content:"✓";
-  color:var(--accent);
-  margin-right:8px;
-}
-
-/* STRATEGIES */
-
-.strategy{
-  margin-bottom:18px;
-}
-
-.strategy h3{
-  color:#fff;
-  margin-bottom:10px;
-}
-
-.strategy p{
-  color:var(--muted);
+.review p{
+  color:#aab5c5;
   line-height:1.7;
 }
 
-/* PAYMENT */
+.review strong{
+  display:block;
+  margin-top:20px;
+}
 
-.payment-box{
-  max-width:500px;
+.review small{
+  color:#6f7c8e;
+}
+
+/* ================= DEMO FORM ================= */
+
+.form{
+  max-width:750px;
   margin:auto;
-  text-align:center;
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:22px;
-  padding:30px;
+}
+
+.input{
+  width:100%;
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.1);
+  background:#080f1b;
+  color:white;
+  outline:none;
+}
+
+.input:focus{
+  border-color:#38e6a0;
+}
+
+textarea.input{
+  min-height:130px;
+  resize:vertical;
+}
+
+/* ================= PAYMENT ================= */
+
+.payment-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center;
 }
 
 .qr{
-  width:280px;
-  max-width:100%;
-  border-radius:12px;
+  text-align:center;
+}
+
+.qr img{
+  width:100%;
+  max-width:360px;
+  border-radius:20px;
   background:white;
   padding:10px;
-  margin:20px auto;
-  display:block;
 }
 
-/* CONTACT */
-
-.contact-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
+.payment-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:20px;
 }
 
-.contact-card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:25px;
+.payment-btn{
+  flex:1;
+  min-width:130px;
+  padding:15px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.1);
+  background:#101827;
+  color:white;
+  cursor:pointer;
 }
 
-.contact-card h3{
-  margin-bottom:8px;
+/* ================= CONTACT ================= */
+
+.contact-box{
+  text-align:center;
 }
 
-.contact-card p{
-  color:var(--muted);
-  line-height:1.6;
+.contact-box h2{
+  font-size:40px;
 }
 
-.contact-link{
-  display:inline-block;
-  color:var(--accent);
-  margin-top:12px;
+.contact-box p{
+  color:#8f9bae;
+  margin:15px 0 25px;
 }
 
-/* DISCLAIMER */
-
-.disclaimer{
-  margin-top:35px;
-  border:1px solid #4b3d2d;
-  background:#18140e;
-  color:#cdbfae;
-  padding:18px;
-  border-radius:14px;
-  line-height:1.6;
-  font-size:13px;
-}
-
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
-  border-top:1px solid var(--line);
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:35px 22px;
   text-align:center;
-  padding:30px 20px;
-  color:var(--muted);
-  font-size:13px;
+  color:#6f7c8e;
+  line-height:1.8;
 }
 
-/* MOBILE */
+.disclaimer{
+  max-width:850px;
+  margin:12px auto 0;
+  font-size:12px;
+}
 
-@media(max-width:800px){
+/* ================= RESPONSIVE ================= */
 
-  .grid,
-  .plans{
+@media(max-width:900px){
+
+  .hero{
     grid-template-columns:1fr;
-  }
-
-  .profile{
-    grid-template-columns:1fr;
-  }
-
-  .profile-img{
-    max-width:280px;
-    margin:auto;
-  }
-
-  .profile-info{
     text-align:center;
   }
 
-  .contact-grid{
+  .hero p{
+    margin:auto;
+  }
+
+  .buttons{
+    justify-content:center;
+  }
+
+  .market-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .strategy-grid,
+  .reviews{
     grid-template-columns:1fr;
   }
 
-  .page{
-    padding-top:40px;
+  .about-grid,
+  .payment-grid{
+    grid-template-columns:1fr;
   }
-
 }
 
+@media(max-width:600px){
+
+  .hero h1{
+    font-size:43px;
+    letter-spacing:-2px;
+  }
+
+  .section-title{
+    font-size:31px;
+  }
+
+  section{
+    padding:75px 17px;
+  }
+
+  .market-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .profile-card img{
+    height:370px;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- ================= NAVBAR ================= -->
 
-<header class="nav">
+<header class="navbar">
   <div class="nav-inner">
 
-    <a href="#home" class="logo" onclick="showPage('home')">
+    <a href="#home" class="logo">
       Vertex<span>Alpha</span>
     </a>
 
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-    <nav class="menu" id="menu">
-
-      <a href="#home" onclick="showPage('home')">
-        🏠 Home
-      </a>
-
-      <a href="#researcher" onclick="showPage('researcher')">
-        👤 Researcher / Founder
-      </a>
-
-      <a href="#strategies" onclick="showPage('strategies')">
-        📊 Trading Strategies
-      </a>
-
-      <a href="#plans" onclick="showPage('plans')">
-        💼 Plans & Pricing
-      </a>
-
-      <a href="#payment" onclick="showPage('payment')">
-        💳 Payment
-      </a>
-
-      <a href="#contact" onclick="showPage('contact')">
-        📞 Contact
-      </a>
-
-      <a href="#location" onclick="showPage('location')">
-        📍 Location
-      </a>
-
-    </nav>
-
   </div>
 </header>
 
+<nav class="menu" id="menu">
 
-<!-- HOME -->
+  <a href="#home" onclick="closeMenu()">🏠 Dashboard</a>
+  <a href="#market" onclick="closeMenu()">📊 Live Market</a>
+  <a href="#about" onclick="closeMenu()">👤 About Vikas</a>
+  <a href="#strategies" onclick="closeMenu()">🧠 Strategies</a>
+  <a href="#demo" onclick="closeMenu()">📝 Demo Request</a>
+  <a href="#reviews" onclick="closeMenu()">💬 Client Reviews</a>
+  <a href="#payment" onclick="closeMenu()">💳 Payment</a>
+  <a href="#contact" onclick="closeMenu()">📞 Contact</a>
 
-<section class="page active" id="home">
+</nav>
 
-  <div class="hero">
+
+<!-- ================= HERO ================= -->
+
+<main id="home">
+
+<section class="hero">
+
+  <div>
 
     <div class="badge">
-      MARKET INTELLIGENCE • RESEARCH • EDUCATION
+      ● MARKET INTELLIGENCE & RESEARCH
     </div>
 
     <h1>
-      Vertex<span>Alpha</span>
+      Think Beyond<br>
+      The <span>Market.</span>
     </h1>
 
     <p>
-      Independent market research and trading education focused on
-      structured analysis, disciplined risk management and
-      strategy-based decision making.
+      Data-driven market research, technical analysis and
+      structured trading frameworks designed to help traders
+      understand the market with greater clarity and discipline.
     </p>
 
     <div class="buttons">
 
-      <a class="btn btn-primary"
-         href="#plans"
-         onclick="showPage('plans')">
-        View Plans
+      <a href="#market" class="btn btn-primary">
+        Explore Market →
       </a>
 
-      <a class="btn btn-secondary"
-         href="#researcher"
-         onclick="showPage('researcher')">
-        Meet Researcher
+      <a href="#demo" class="btn">
+        Request Demo
       </a>
 
     </div>
@@ -559,163 +626,14 @@ footer{
   </div>
 
 
-  <div class="section-title">
-    <h2>What we focus on</h2>
-    <p>Research-driven market education.</p>
-  </div>
+  <div class="profile-card card">
 
-  <div class="grid">
+    <img src="profile.jpg" alt="Vikas Choubey">
 
-    <div class="card">
-      <div class="icon">📈</div>
-      <h3>Market Research</h3>
-      <p>
-        Structured study of market trends, price action,
-        technical indicators and important market levels.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🎯</div>
-      <h3>Strategy Development</h3>
-      <p>
-        Rule-based approaches designed around entries,
-        exits, position sizing and risk management.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🛡️</div>
-      <h3>Risk Management</h3>
-      <p>
-        Focus on disciplined risk control rather than
-        unrealistic profit promises.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- RESEARCHER -->
-
-<section class="page" id="researcher">
-
-  <div class="section-title">
-    <h2>Researcher & Founder</h2>
-    <p>Meet the person behind VertexAlpha.</p>
-  </div>
-
-  <div class="profile">
-
-    <!-- Upload your photo to GitHub as vikas.jpg -->
-   <img src="IMG-20260824-WA0001.jpg" alt="Vikas Choubey">
-    
-
-
-
-    <div class="profile-info">
-
-      <h1>Vikas Choubey</h1>
-
-      <div class="role">
-        Researcher & Founder — VertexAlpha
-      </div>
-
-      <p style="color:var(--muted);line-height:1.8;">
-        Focused on market research, technical analysis,
-        trading strategy development and disciplined
-        risk-management frameworks.
-      </p>
-
-      <div class="info">
-
-        <div>
-          <strong>Experience</strong>
-          <span>8 Years</span>
-        </div>
-
-        <div>
-          <strong>Location</strong>
-          <span>Tejaji Nagar, Indore, Madhya Pradesh</span>
-        </div>
-
-        <div>
-          <strong>Email</strong>
-          <span>vertexalpha.market@gmail.com</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- STRATEGIES -->
-
-<section class="page" id="strategies">
-
-  <div class="section-title">
-    <h2>Trading Strategies</h2>
-    <p>Research frameworks used for market study and education.</p>
-  </div>
-
-  <div class="strategy card">
-
-    <h3>01 — Trend & Momentum Analysis</h3>
+    <h2>Vikas Choubey</h2>
 
     <p>
-      Study of market structure, trend direction, momentum
-      and important price levels to identify potential
-      trading opportunities.
-    </p>
-
-  </div>
-
-  <div class="strategy card">
-
-    <h3>02 — Support & Resistance</h3>
-
-    <p>
-      Identification of important demand and supply zones,
-      breakout areas and rejection levels.
-    </p>
-
-  </div>
-
-  <div class="strategy card">
-
-    <h3>03 — Technical Confluence</h3>
-
-    <p>
-      Combining multiple technical signals rather than
-      relying on a single indicator.
-    </p>
-
-  </div>
-
-  <div class="strategy card">
-
-    <h3>04 — Risk Management</h3>
-
-    <p>
-      Position sizing, stop-loss planning and risk-to-reward
-      analysis are considered before taking a trade.
-    </p>
-
-  </div>
-
-  <div class="strategy card">
-
-    <h3>05 — Market Psychology</h3>
-
-    <p>
-      Understanding discipline, emotional control and
-      behavioural mistakes that can affect trading decisions.
+      Researcher & Founder — VertexAlpha
     </p>
 
   </div>
@@ -723,189 +641,416 @@ footer{
 </section>
 
 
-<!-- PLANS -->
+<!-- ================= MARKET ================= -->
 
-<section class="page" id="plans">
+<section id="market" class="market-section">
 
-  <div class="section-title">
-    <h2>Plans & Pricing</h2>
-    <p>Select a research/education plan according to your requirement.</p>
+  <h2 class="section-title">
+    Market <span>Dashboard</span>
+  </h2>
+
+  <p class="section-subtitle">
+    A professional market view combining Indian equities,
+    indices and global financial markets.
+  </p>
+
+  <div class="market-grid">
+
+    <div class="market-card">
+      <small>NIFTY 50</small>
+      <h3>LIVE MARKET</h3>
+      <div class="up">● Market Data</div>
+    </div>
+
+    <div class="market-card">
+      <small>SENSEX</small>
+      <h3>LIVE MARKET</h3>
+      <div class="up">● Market Data</div>
+    </div>
+
+    <div class="market-card">
+      <small>USD / INR</small>
+      <h3>FOREX</h3>
+      <div class="up">● Market Data</div>
+    </div>
+
+    <div class="market-card">
+      <small>GOLD</small>
+      <h3>COMMODITY</h3>
+      <div class="up">● Market Data</div>
+    </div>
+
   </div>
 
-  <div class="plans">
 
-    <div class="plan">
+  <!-- TradingView market chart -->
 
-      <div class="plan-name">Sigma</div>
+  <div class="chart-box card">
 
-      <div class="price">₹18,500</div>
+    <iframe
+      src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_chart&symbol=NSE%3ANIFTY&interval=15&hidesidetoolbar=1&symboledit=1&saveimage=0&toolbarbg=f1f3f6&studies=%5B%5D&theme=dark&style=1&timezone=Asia%2FKolkata&withdateranges=1&hideideas=1"
+      allowfullscreen>
+    </iframe>
 
-      <div class="duration">
-        30 Working Days
-      </div>
+  </div>
 
-      <ul>
-        <li>Market Research</li>
-        <li>Strategy-Based Analysis</li>
-        <li>Technical Market Study</li>
-        <li>Risk Management Framework</li>
-      </ul>
+</section>
 
-      <a class="btn btn-primary"
-         href="#payment"
-         onclick="showPage('payment')">
-        Payment
-      </a>
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+  <h2 class="section-title">
+    About <span>VertexAlpha</span>
+  </h2>
+
+  <p class="section-subtitle">
+    A research-focused platform built around market intelligence,
+    technical analysis and disciplined decision making.
+  </p>
+
+
+  <div class="about-grid">
+
+    <div class="card">
+
+      <h3>Our Approach</h3>
+
+      <p style="color:#9aa7ba;line-height:1.8;margin-top:15px;">
+        Instead of depending on random tips, VertexAlpha focuses on
+        understanding price behaviour, market structure,
+        risk and probability.
+      </p>
 
     </div>
 
 
-    <div class="plan featured">
+    <div class="card">
 
-      <div class="plan-name">Gamma</div>
+      <h3>What We Study</h3>
 
-      <div class="price">₹29,500</div>
+      <ul class="about-list">
 
-      <div class="duration">
-        3 Months
-      </div>
-
-      <ul>
-        <li>Market Research</li>
-        <li>Multiple Strategy Analysis</li>
-        <li>Technical Study</li>
+        <li>Indian Equity Markets</li>
+        <li>Index Behaviour</li>
+        <li>Technical Market Structure</li>
+        <li>Forex Market Research</li>
         <li>Risk Management</li>
+
       </ul>
 
-      <a class="btn btn-primary"
-         href="#payment"
-         onclick="showPage('payment')">
-        Payment
-      </a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= STRATEGIES ================= -->
+
+<section id="strategies">
+
+  <h2 class="section-title">
+    The <span>VertexAlpha</span> Framework
+  </h2>
+
+  <p class="section-subtitle">
+    A structured way to study markets instead of blindly following
+    buy/sell calls.
+  </p>
+
+
+  <div class="strategy-grid">
+
+    <div class="strategy-card card">
+
+      <div class="strategy-number">01 — STRUCTURE</div>
+
+      <h3>Market Structure Mapping</h3>
+
+      <p>
+        Identify important highs, lows, trends and market zones
+        before considering any trade idea.
+      </p>
 
     </div>
 
 
-    <div class="plan">
+    <div class="strategy-card card">
 
-      <div class="plan-name">Delta</div>
+      <div class="strategy-number">02 — LIQUIDITY</div>
 
-      <div class="price">₹75,000</div>
+      <h3>Liquidity Behaviour</h3>
 
-      <div class="duration">
-        1 Year
+      <p>
+        Study areas where price may react and understand why
+        volatility increases around important levels.
+      </p>
+
+    </div>
+
+
+    <div class="strategy-card card">
+
+      <div class="strategy-number">03 — PROBABILITY</div>
+
+      <h3>Probability Filter</h3>
+
+      <p>
+        Every setup is evaluated through risk, reward,
+        confirmation and invalidation rather than emotion.
+      </p>
+
+    </div>
+
+
+    <div class="strategy-card card">
+
+      <div class="strategy-number">04 — RISK</div>
+
+      <h3>Risk First Model</h3>
+
+      <p>
+        The objective is not to predict every move.
+        The objective is to control downside when the market
+        behaves differently than expected.
+      </p>
+
+    </div>
+
+
+    <div class="strategy-card card">
+
+      <div class="strategy-number">05 — TIMING</div>
+
+      <h3>Multi-Timeframe Context</h3>
+
+      <p>
+        Higher timeframe context is combined with lower timeframe
+        confirmation to reduce impulsive decisions.
+      </p>
+
+    </div>
+
+
+    <div class="strategy-card card">
+
+      <div class="strategy-number">06 — DISCIPLINE</div>
+
+      <h3>Execution Discipline</h3>
+
+      <p>
+        A good framework is useful only when the trader follows
+        predefined rules consistently.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= DEMO ================= -->
+
+<section id="demo">
+
+  <h2 class="section-title">
+    Request a <span>Demo</span>
+  </h2>
+
+  <p class="section-subtitle">
+    Submit your details and tell us what you want to learn
+    or understand about the market.
+  </p>
+
+
+  <form
+    class="form card"
+    action="https://formsubmit.co/YOUR_EMAIL_HERE"
+    method="POST">
+
+    <input
+      class="input"
+      type="text"
+      name="name"
+      placeholder="Your Full Name"
+      required>
+
+    <input
+      class="input"
+      type="tel"
+      name="phone"
+      placeholder="Mobile Number"
+      required>
+
+    <input
+      class="input"
+      type="email"
+      name="email"
+      placeholder="Email Address">
+
+    <select class="input" name="interest">
+
+      <option value="">
+        What are you interested in?
+      </option>
+
+      <option>Stock Market</option>
+      <option>Forex Market</option>
+      <option>Technical Analysis</option>
+      <option>Market Research</option>
+      <option>Trading Education</option>
+
+    </select>
+
+    <textarea
+      class="input"
+      name="message"
+      placeholder="Tell us what you want to understand..."></textarea>
+
+    <button class="btn btn-primary" type="submit">
+      Submit Demo Request →
+    </button>
+
+  </form>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section id="reviews">
+
+  <h2 class="section-title">
+    Client <span>Reviews</span>
+  </h2>
+
+  <p class="section-subtitle">
+    Real client feedback can be added here as you collect it.
+  </p>
+
+
+  <div class="reviews">
+
+    <div class="review card">
+
+      <div class="stars">★★★★★</div>
+
+      <p>
+        “The research presentation made it much easier for me
+        to understand how market structure works.”
+      </p>
+
+      <strong>Sample Client</strong>
+      <small>Indore, Madhya Pradesh</small>
+
+    </div>
+
+
+    <div class="review card">
+
+      <div class="stars">★★★★★</div>
+
+      <p>
+        “I liked the focus on risk management instead of simply
+        giving random market calls.”
+      </p>
+
+      <strong>Sample Client</strong>
+      <small>Bhopal, Madhya Pradesh</small>
+
+    </div>
+
+
+    <div class="review card">
+
+      <div class="stars">★★★★★</div>
+
+      <p>
+        “The demo helped me understand the framework and the
+        importance of having a trading plan.”
+      </p>
+
+      <strong>Sample Client</strong>
+      <small>Delhi, India</small>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PAYMENT ================= -->
+
+<section id="payment">
+
+  <h2 class="section-title">
+    Secure <span>Payment</span>
+  </h2>
+
+  <p class="section-subtitle">
+    Pay using UPI or scan the QR code.
+  </p>
+
+
+  <div class="payment-grid">
+
+    <div class="qr card">
+
+      <h3>Scan & Pay</h3>
+
+      <br>
+
+      <img
+        src="qr-code.jpg"
+        alt="VertexAlpha UPI QR Code">
+
+      <p style="margin-top:15px;color:#8996a8;">
+        UPI ID: 9171221515@pthdfc
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Payment Options</h3>
+
+      <p style="color:#8996a8;line-height:1.7;margin-top:12px;">
+        Choose your preferred UPI payment method.
+      </p>
+
+
+      <div class="payment-buttons">
+
+        <button
+          class="payment-btn"
+          onclick="payUPI()">
+          GPay / UPI
+        </button>
+
+        <button
+          class="payment-btn"
+          onclick="payUPI()">
+          PhonePe
+        </button>
+
+        <button
+          class="payment-btn"
+          onclick="razorpay()">
+          Razorpay
+        </button>
+
       </div>
 
-      <ul>
-        <li>Long-Term Research Support</li>
-        <li>Multiple Strategy Frameworks</li>
-        <li>Market Analysis</li>
-        <li>Risk Management Education</li>
-      </ul>
-
-      <a class="btn btn-primary"
-         href="#payment"
-         onclick="showPage('payment')">
-        Payment
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- PAYMENT -->
-
-<section class="page" id="payment">
-
-  <div class="section-title">
-    <h2>Payment</h2>
-    <p>Use the QR code below for payment.</p>
-  </div>
-
-  <div class="payment-box">
-
-    <h2>VertexAlpha</h2>
-
-    <p style="color:var(--muted);margin-top:8px;">
-      Scan the QR code using your preferred UPI app.
-    </p>
-
-    <!-- Upload your QR image to GitHub as payment-qr.png -->
-    <img
-      class="qr"
-      src="IMG-20260824-WA0001.jpg"
-      alt="VertexAlpha Payment QR Code"
-    >
-
-    <p style="color:var(--muted);line-height:1.7;">
-      After payment, please contact us on WhatsApp
-      and share the payment confirmation.
-    </p>
-
-    <div class="buttons">
-
-      <a class="btn btn-primary"
-         href="https://wa.me/919171221515"
-         target="_blank">
-        WhatsApp
-      </a>
-
-      <a class="btn btn-secondary"
-         href="mailto:vertexalpha.market@gmail.com">
-        Email
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section class="page" id="contact">
-
-  <div class="section-title">
-    <h2>Contact VertexAlpha</h2>
-    <p>For enquiries and plan information.</p>
-  </div>
-
-  <div class="contact-grid">
-
-    <div class="contact-card">
-
-      <h3>📱 WhatsApp / Mobile</h3>
-
-      <p>
-        +91 9171221515
+      <p style="font-size:12px;color:#667386;margin-top:20px;">
+        Payment details should be verified before completing
+        any transaction.
       </p>
 
-      <a class="contact-link"
-         href="https://wa.me/919171221515"
-         target="_blank">
-        Chat on WhatsApp →
-      </a>
-
-    </div>
-
-
-    <div class="contact-card">
-
-      <h3>✉️ Email</h3>
-
-      <p>
-        vertexalpha.market@gmail.com
-      </p>
-
-      <a class="contact-link"
-         href="mailto:vertexalpha.market@gmail.com">
-        Send Email →
-      </a>
-
     </div>
 
   </div>
@@ -913,51 +1058,70 @@ footer{
 </section>
 
 
-<!-- LOCATION -->
+<!-- ================= CONTACT ================= -->
 
-<section class="page" id="location">
+<section id="contact">
 
-  <div class="section-title">
-    <h2>Location</h2>
-    <p>VertexAlpha</p>
-  </div>
+  <div class="contact-box card">
 
-  <div class="contact-card">
+    <h2>
+      Let's Talk <span style="color:#38e6a0;">Markets.</span>
+    </h2>
 
-    <h3>📍 Office / Research Location</h3>
-
-    <p style="margin-top:10px;">
-      Tejaji Nagar,<br>
-      Indore, Madhya Pradesh,<br>
-      India
+    <p>
+      Have a question or want to request a demo?
     </p>
 
-    <a
-      class="contact-link"
-      href="https://www.google.com/maps/search/?api=1&query=Tejaji+Nagar+Indore+Madhya+Pradesh"
-      target="_blank">
-      Open in Google Maps →
-    </a>
+    <div class="buttons" style="justify-content:center;">
+
+      <a
+        class="btn btn-primary"
+        href="https://wa.me/919131131696"
+        target="_blank">
+        WhatsApp Us
+      </a>
+
+      <a
+        class="btn"
+        href="#demo">
+        Request Demo
+      </a>
+
+    </div>
 
   </div>
 
 </section>
 
+</main>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-  <p>
-    © 2026 VertexAlpha — Market Intelligence & Education
-  </p>
+  <strong>VertexAlpha</strong>
 
-  <p style="margin-top:8px;">
-    Research and educational information only. Market activities involve risk.
-  </p>
+  <div class="disclaimer">
+
+    VertexAlpha provides market research and educational
+    information. Nothing on this website should be considered
+    personalised investment advice, a guaranteed return,
+    or a promise of profit. Financial markets involve risk.
+    Please make decisions according to your own risk profile.
+
+  </div>
+
+  <br>
+
+  © 2026 VertexAlpha. All Rights Reserved.
 
 </footer>
 
 
 <script>
+
+/* ================= MENU ================= */
 
 function toggleMenu(){
 
@@ -967,68 +1131,56 @@ function toggleMenu(){
 
 }
 
-
-function showPage(page){
-
-  document
-    .querySelectorAll(".page")
-    .forEach(function(section){
-
-      section.classList.remove("active");
-
-    });
-
-
-  const selected =
-    document.getElementById(page);
-
-  if(selected){
-    selected.classList.add("active");
-  }
-
+function closeMenu(){
 
   document
     .getElementById("menu")
     .classList.remove("open");
 
+}
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+
+/* ================= UPI ================= */
+
+function payUPI(){
+
+  const upi =
+  "upi://pay?pa=9171221515@pthdfc&pn=Vikas%20Choubey&cu=INR";
+
+  window.location.href = upi;
 
 }
 
 
-function loadPage(){
+/* ================= RAZORPAY ================= */
 
-  let page =
-    window.location.hash.replace("#","");
+function razorpay(){
 
-
-  if(!page){
-    page="home";
-  }
-
-
-  const exists =
-    document.getElementById(page);
-
-  if(exists){
-    showPage(page);
-  }else{
-    showPage("home");
-  }
+  alert(
+    "Razorpay payment link will be connected here after your Razorpay Payment Link is created."
+  );
 
 }
 
 
-window.addEventListener(
-  "hashchange",
-  loadPage
-);
+/* ================= CLOSE MENU ON OUTSIDE CLICK ================= */
 
-loadPage();
+document.addEventListener("click",function(e){
+
+  const menu=document.getElementById("menu");
+  const button=document.querySelector(".menu-btn");
+
+  if(
+    menu.classList.contains("open") &&
+    !menu.contains(e.target) &&
+    !button.contains(e.target)
+  ){
+
+    menu.classList.remove("open");
+
+  }
+
+});
 
 </script>
 
